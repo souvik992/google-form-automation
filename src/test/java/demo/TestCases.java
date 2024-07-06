@@ -33,14 +33,17 @@ public class TestCases {
     @Test
     public void testCase01() {
         try {
+            System.out.println("Started TestCase01");
             Wrappers.navigateTo("https://forms.gle/wjPkzeSEk1CM7KgGA");
             Wrappers.waitForPageToLoad();
             Thread.sleep(3000);
+            System.out.println("page Loaded!");
 
             Wrappers.sendKeys(By.xpath("//input[@type='text']"), "Crio Learner");
 
             long epochTime = System.currentTimeMillis();
             Wrappers.sendKeys(By.xpath("//textarea[@aria-label='Your answer']"), "I want to be the best QA Engineer!" + epochTime);
+            System.out.println("current time entered: " + epochTime);
 
             Wrappers.click(By.xpath("(//div[@id='i13'])[1]"));
 
@@ -55,22 +58,26 @@ public class TestCases {
             Wrappers.sendKeys(By.xpath("//input[@type='date']"), "28");
             Wrappers.sendKeys(By.xpath("//input[@type='date']"), "06");
             Wrappers.sendKeys(By.xpath("//input[@type='date']"), "2024");
+            System.out.println("Date Entered!");
 
             Wrappers.sendKeys(By.xpath("(//input[@type='number'])[1]"), "7");
             Wrappers.sendKeys(By.xpath("(//input[@type='number'])[2]"), "30");
+            System.out.println("Time Entered!");
 
             Wrappers.click(By.xpath("//div[@role='button'][1]"));
             Thread.sleep(3000);
 
             WebElement confirmMessage = Wrappers.findElement("//div[@class='vHW8K']");
             if(confirmMessage.isDisplayed()){
-                System.out.println(confirmMessage.getText());
+                System.out.println("Form Submitted successfully!");
+                System.out.println("Sucess message: " + confirmMessage.getText());
             }
 
-            // Thread.sleep(100000);
+            System.out.println("End TestCase01");
 
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("TestCase01 Failed!");
         }
 
     }

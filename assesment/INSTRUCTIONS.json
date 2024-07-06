@@ -2,7 +2,7 @@
   "quality_eval": [
     {
       "is_enabled": true,
-      "min_limit": 3,
+      "min_limit": 0,
       "max_limit": null,
       "out": "Comment Check.You used {} comments, should be between {} < {}",
       "indicator": "USED_COMMENT"
